@@ -1,0 +1,49 @@
+# Build artifacts
+build/
+bin/
+out/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Object / debug files
+*.obj
+*.o
+*.pdb
+*.ipdb
+*.ilk
+*.exp
+*.lib
+*.pch
+*.ipch
+*.tlog
+*.idb
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.vcxproj.user
+
+# CMake user
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeUserPresets.json
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*~
+
+# Runtime / temp
+imgui.ini
+*.log
+_pkg_staging/
+
+# Generated artifacts (regenerable)
+report.html
