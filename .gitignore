@@ -1,0 +1,13 @@
+# 大型二進位檔（超過 GitHub 限制或過大，不入庫）
+*.blend
+*.blend1
+*.mp4
+素材/
+道具_場景_光照/
+renders/
+*.bundle
+# 暫存 / 系統
+__pycache__/
+*.pyc
+.DS_Store
+T
