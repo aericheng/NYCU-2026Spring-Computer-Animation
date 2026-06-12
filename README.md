@@ -13,8 +13,8 @@ NYCU・電腦動畫與特效 — Computer Animation & Special Effects · Final P
 ![Engine](https://img.shields.io/badge/EEVEE_Next-realtime-3B82F6)
 ![Resolution](https://img.shields.io/badge/1920×1080-Full_HD-1B2A4A)
 ![FPS](https://img.shields.io/badge/60-fps-2E9B57)
-![Runtime](https://img.shields.io/badge/runtime-4:13-9333EA)
-![Frames](https://img.shields.io/badge/frames-15,180-E2742B)
+![Runtime](https://img.shields.io/badge/runtime-3:30-9333EA)
+![Frames](https://img.shields.io/badge/frames-12,617-E2742B)
 ![Color](https://img.shields.io/badge/View-AgX-555555)
 
 <br>
@@ -56,7 +56,7 @@ NYCU・電腦動畫與特效 — Computer Animation & Special Effects · Final P
 | 算圖引擎 Engine | Blender **EEVEE Next** |
 | 解析度 Resolution | 1920 × 1080（Full HD）|
 | 影格率 Frame rate | 60 fps |
-| 片長 Runtime | 4:13（共 15,180 格）|
+| 片長 Runtime | 3:30（共 12,617 格）|
 | 取樣 Samples | 64（TAA render samples）|
 | 色彩 Color | AgX View Transform |
 | 工具 Tools | Blender 5.1 · Mixamo · Poly Haven · ffmpeg |
@@ -65,10 +65,10 @@ NYCU・電腦動畫與特效 — Computer Animation & Special Effects · Final P
 
 | | |
 |:--:|:--|
-| <img src="images/act1_dribble.jpg" width="340"> | **ACT 1** ・ 0:00–1:45<br>SGA 運球單打，示範合法攻防（綠圓柱規則講解）；接著被吹第一次「防守犯規」，搭配教學字幕。 |
-| <img src="images/act2_fight.jpg" width="340"> | **ACT 2** ・ 1:45–2:48<br>第二次爭議判罰、四機位慢動作回放；情緒失控演成扭打，替補衝進來開槍，竟又造成一次防守犯規。 |
-| <img src="images/act3_celebrate.jpg" width="340"> | **ACT 3** ・ 2:48–3:34<br>裁判舉牌判罰；防守方整隊抗議無效後棄賽，SGA 獨自慶祝（計分板 1-0）。 |
-| <img src="images/act4_theend.jpg" width="340"> | **ACT 4** ・ 3:34–4:13<br>黑場轉到西裝店，裁縫量身、SGA 一張臂，圓柱罩著他；裁判慢動作走進來再吹一次，「The End」。 |
+| <img src="images/act1_dribble.jpg" width="340"> | **ACT 1** ・ 0:00–0:45<br>SGA 運球單打、投籃進球，示範合法攻防（綠圓柱規則講解）；接著被吹第一次「防守犯規」，圓柱瞬間轉紅，搭配教學字幕。 |
+| <img src="images/act2_fight.jpg" width="340"> | **ACT 2** ・ 0:45–1:30<br>第二次爭議判罰、四機位慢動作回放；情緒失控演成扭打，替補衝進來開槍，竟又造成一次防守犯規。 |
+| <img src="images/act3_celebrate.jpg" width="340"> | **ACT 3** ・ 1:30–2:20<br>裁判舉牌判罰（圓柱轉紅）；防守方整隊抗議無效後棄賽，SGA 獨自慶祝（計分板 1-0）。 |
+| <img src="images/act4_theend.jpg" width="340"> | **ACT 4** ・ 2:20–3:30<br>黑場轉到西裝店，裁縫量身、SGA 一張臂，圓柱罩著他；裁判從側邊走進來再吹一次，「The End」。 |
 
 ## 🛠 技術重點 · Tech Highlights
 
@@ -76,7 +76,7 @@ NYCU・電腦動畫與特效 — Computer Animation & Special Effects · Final P
 
 <img src="images/cylinder.jpg" width="48%" align="right">
 
-整支片技術上花最多心思的地方。圓柱是用 **Geometry Nodes** 長出來的半透明柱子（`GN_Cylinder` 修改器），顏色、發光、半徑、要不要顯示都接到幾個自訂屬性上，再用一個 **frame-change handler** 在每一格即時更新狀態、順便貼齊地面。本片圓柱維持綠色，呈現規則保護的垂直空間；系統也支援切成紅色 Emission（犯規），但這支成片沒有觸發到，犯規改由裁判舉牌和字幕表示。
+整支片技術上花最多心思的地方。圓柱是用 **Geometry Nodes** 長出來的半透明柱子（`GN_Cylinder` 修改器），顏色、發光、半徑、要不要顯示都接到幾個自訂屬性上，再用一個 **frame-change handler** 在每一格即時更新狀態、順便貼齊地面。圓柱平常是綠色（規則保護的垂直空間），在判罰時切成紅色 Emission（犯規）；紅色狀態是用腳本在劇情關鍵點手動觸發 override，再搭配裁判舉牌和字幕。
 
 > **一個中途的轉彎：** 原本想「自動」判犯規 —— 偵測手到圓柱中心小於 0.3m 就算侵入。但實測手最近只到 0.86m，門檻根本碰不到。後來改用腳本手動控制圓柱的出現與狀態（override），少了點自動的帥氣，卻更好控制劇情節奏。
 
@@ -101,15 +101,15 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 │  Blender 5.1 主檔  籃球短片_主檔.blend                       │
 │                                                             │
 │  Root/Rig 分離 ── NLA 軌道 ── Damped Track                  │
-│  Geometry Nodes 圓柱 ── frame-change handler（綠色視覺化）   │
+│  Geometry Nodes 圓柱 ── frame-change handler（綠→紅 視覺化）│
 │  四機位運鏡 ── HDRI + 區域光 ── 特效/字幕/HUD                │
 └───────────────────────────────────────────────────────────┘
       │
       ▼  渲染_高畫質版.py（批次算圖：EEVEE Next, 64 samples）
-   PNG 序列  renders/final/  (15,180 格)
+   PNG 序列  renders/final/  (12,617 格)
       │
       ▼  ffmpeg 編碼
-   籃球短片_成片.mp4  (1080p · 60fps · 4:13)
+   籃球短片_成片.mp4  (1080p · 60fps · 3:30)
 ```
 
 ## 🖼 劇照 · Gallery
@@ -122,7 +122,7 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 
 | 檔案 | 說明 |
 |---|---|
-| `Group2_Final_Project_report.pdf` | 完整期末報告（7 頁）|
+| `Group2_Final_Project_report.pdf` | 完整期末報告（8 頁）|
 | `Group2_Final_Project_ppt.pptx` / `.pdf` | Demo 簡報（15 張）|
 | `渲染_高畫質版.py` | Blender 批次算圖腳本（EEVEE Next）|
 | `images/` | README 用的劇照 |
@@ -131,7 +131,7 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 
 ## ▶️ Demo 影片 · Video
 
-🎥 **YouTube：** [NBA犯規機制之侵犯圓柱體規則討論及視覺化](https://youtu.be/SRWIcS5Sxe8)
+🎥 **YouTube：** [NBA犯規機制之侵犯圓柱體規則討論及視覺化](https://youtu.be/oSGFb4_2uIQ)
 
 ## 👥 團隊 · Team
 
