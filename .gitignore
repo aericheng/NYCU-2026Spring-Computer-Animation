@@ -10,4 +10,4 @@ renders/
 __pycache__/
 *.pyc
 .DS_Store
-T
+Thumbs.db

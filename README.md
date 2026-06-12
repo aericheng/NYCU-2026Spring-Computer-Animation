@@ -76,11 +76,15 @@ NYCU・電腦動畫與特效 — Computer Animation & Special Effects · Final P
 
 <img src="images/cylinder.jpg" width="48%" align="right">
 
-整支片技術上花最多心思的地方。圓柱是用 **Geometry Nodes** 長出來的半透明柱子（`GN_Cylinder` 修改器），顏色、發光、半徑、要不要顯示都接到幾個自訂屬性上，再用一個 **frame-change handler** 在每一格即時更新狀態、順便貼齊地面。圓柱平常是綠色（規則保護的垂直空間），在判罰時切成紅色 Emission（犯規）；紅色狀態是用腳本在劇情關鍵點手動觸發 override，再搭配裁判舉牌和字幕。
+整支片技術上花最多心思的地方。圓柱是用 **Geometry Nodes** 長出來的半透明柱子（`GN_Cylinder` 修改器），顏色、發光、半徑、要不要顯示都接到幾個自訂屬性上，再用一個 **frame-change handler** 在每一格即時更新狀態、順便貼齊地面。判定的核心是**碰撞偵測**：handler 每一格計算進攻方手部到圓柱中心的距離，判斷有沒有侵入這個垂直防守空間，一偵測到侵入就把圓柱從綠色（合法）切成紅色 Emission（犯規），再搭配裁判舉牌和字幕。
 
-> **一個中途的轉彎：** 原本想「自動」判犯規 —— 偵測手到圓柱中心小於 0.3m 就算侵入。但實測手最近只到 0.86m，門檻根本碰不到。後來改用腳本手動控制圓柱的出現與狀態（override），少了點自動的帥氣，卻更好控制劇情節奏。
+> **一點設計取捨：** 距離碰撞偵測是整套判定的基礎；不過實際成片裡，為了精準演出「看似合法卻被吹犯規」的反諷節奏，每次判罰的時機我們再用 `override` 在劇情關鍵點觸發。圓柱半徑用 **0.6m** 代表球員的垂直防守範圍，西裝店量臂展時放大到 **1.0m**。
 
 <br clear="right">
+
+### 🏀 籃球物理與碰撞
+
+運球、投籃與進球都以接觸／碰撞為基礎：運球時球貼著手掌不穿掌、落地依地板高度反彈，投籃出手後沿拋物線**空心進框**；球穿手、球穿地板、角色互穿等接觸異常也用位置約束逐一修掉。
 
 ### 🦴 NLA 與 Root / Rig 分離
 
@@ -145,12 +149,4 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 ## 🙏 素材來源 · Credits
 
 - **Mixamo** (Adobe) — 角色骨架、蒙皮與動作
-- **Poly Haven** — HDRI 環境光（`orlando_stadium`、`ferndale_studio_03`，CC0）
-- 店面與道具 — `Old Curiosity Shop` 店面、`prom suit` 西裝等現成 GLB 模型
-- **Blender 5.1 / EEVEE Next** — 建模、動畫、算圖
-- **ffmpeg** — PNG 序列編碼成 MP4
-
-<div align="center">
-<br>
-<sub>Made with 🏀 + Blender at NYCU · Computer Animation & Special Effects</sub>
-</div>
+- **Po
