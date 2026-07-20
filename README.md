@@ -149,4 +149,12 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 ## 🙏 素材來源 · Credits
 
 - **Mixamo** (Adobe) — 角色骨架、蒙皮與動作
-- **Po
+- **Poly Haven** — HDRI 環境光（`orlando_stadium`、`ferndale_studio_03`，CC0）
+- 店面與道具 — `Old Curiosity Shop` 店面、`prom suit` 西裝等現成 GLB 模型
+- **Blender 5.1 / EEVEE Next** — 建模、動畫、算圖
+- **ffmpeg** — PNG 序列編碼成 MP4
+
+<div align="center">
+<br>
+<sub>Made with 🏀 + Blender at NYCU · Computer Animation & Special Effects</sub>
+</div>
