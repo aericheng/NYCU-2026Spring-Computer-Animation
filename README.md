@@ -30,15 +30,16 @@ NBA's "principle of verticality" foul rule through a 3D short with full pipeline
 |--------|-------|---------|
 | [HW1](HW1/) | Mass-Spring Particle System（質點彈簧系統模擬） | From-scratch C++/OpenGL soft-body simulator built on a mass-spring system (particles, springs, semi-implicit integrator) with terrain collision, rendered with custom GLSL shaders (particle/render/shadow/skybox). Includes the assignment spec, written report, and full source (`code/`). Local submission that had never previously been pushed to GitHub. |
 | [HW3](HW3/) | Inverse Kinematics（反向運動學） | IK solver on the CMU mocap skeleton (AMC/ASF format) with an interactive ImGui demo for dragging end-effector targets in real time. Implements DOF-respecting Jacobian (damped least squares via SVD), Cyclic Coordinate Descent (CCD), and a bonus FABRIK+CCD hybrid solver, plus joint weighting, gimbal-lock fallback, and live convergence/residual display. |
-| [Project](Project/) | Final Project — NBA Cylinder Foul Rule Short Film（NBA犯規機制之侵犯圓柱體規則討論及視覺化） | A short animated film (Blender, EEVEE Next, 1920×1080 @ 60fps, ~3:30 runtime) satirizing the NBA's "principle of verticality" defensive foul rule by literally visualizing the invisible foul cylinder. Includes full production pipeline scripts (rendering, stitching, recalculation passes), slides, and written report. Group final project. |
+| [Project](Project/) | Final Project — NBA Cylinder Foul Rule Short Film（NBA犯規機制之侵犯圓柱體規則討論及視覺化） | A short animated film (Blender, EEVEE Next, 1920×1080 @ 60fps, ~3:30 runtime) satirizing the NBA's "principle of verticality" defensive foul rule by literally visualizing the invisible foul cylinder. Includes full production pipeline scripts (rendering, stitching, recalculation passes) and presentation slides; the written report PDF was omitted from the public repo for privacy. Group final project. |
 
 ## Notes
 
-Each `HW*/` folder is self-contained and keeps its own original README with
-setup instructions and implementation details — please refer to the subfolder
+Each `HW*/` folder is self-contained and keeps its own README with setup
+instructions and implementation details — please refer to the subfolder
 README before running any code. Commit history for HW3 and Project has been
-preserved from their original individual repositories. HW1 is added as a fresh
-commit since it existed only as an uncommitted local working copy (never
-previously pushed anywhere); a ~70MB demo video and a duplicate submission zip
-(identical to the loose files already present) were excluded to keep the
-repository lean.
+preserved from their original individual repositories, and both keep their
+original submission READMEs. HW1 is added as a fresh commit since it existed
+only as an uncommitted local working copy (never previously pushed anywhere);
+its README was written for this consolidation. A ~70MB demo video and a
+duplicate submission zip (identical to the loose files already present) were
+excluded to keep the repository lean.

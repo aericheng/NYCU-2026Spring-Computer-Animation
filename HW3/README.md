@@ -63,7 +63,7 @@ NYCU 2026 Spring · Student: 113950011 · 鄭名翔
 
 ### Windows + Visual Studio 2017/2019/2022
 
-- Open `InverseKinematics.sln`
+- Open `Kinematics.sln`
 - Build (Release / x64 推薦)
 - Executable 出現在 `./bin/`
 
