@@ -126,11 +126,10 @@ Mixamo 動作          Poly Haven HDRI         現成 GLB 模型
 
 | 檔案 | 說明 |
 |---|---|
-| `Group2_Final_Project_ppt.pptx` / `.pdf` | Demo 簡報（15 張）|
 | `渲染_高畫質版.py` | Blender 批次算圖腳本（EEVEE Next）|
 | `images/` | README 用的劇照 |
 
-> PDF report omitted from the public repo for privacy.
+> Demo 簡報（`.pptx` / `.pdf`）與書面報告 PDF 皆未收錄於公開 repo（含隊員個資）。
 
 > ℹ️ 主檔 `.blend`、成片 `.mp4` 和角色／場景原始檔（約 1.3 GB）因為超過 GitHub 單檔上限，沒有放進 repo；需要的話可另外提供。
 
